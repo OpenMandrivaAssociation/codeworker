@@ -10,6 +10,7 @@ Source0: %{name}-%{version}.tar.bz2
 License: GPL
 Group: Development/Other
 Url: http://codeworker.free.fr/
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: gcc-c++
 
 %description
