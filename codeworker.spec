@@ -1,62 +1,58 @@
-%define name codeworker
-%define version 4.2
-%define release %mkrel 1
+%define oname CodeWorker
 
-Summary: A universal parsing tool and a source code generator
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
-License: GPL
-Group: Development/Other
-Url: http://codeworker.free.fr/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: gcc-c++
+Summary:	A universal parsing tool and a source code generator
+Name:		codeworker
+Version:	4.4
+Release:	%mkrel 1
+Source0:	http://codeworker.free.fr/downloads/%{oname}_SRC4_4.zip
+License:	LGPLv2+
+Group:		Development/Other
+URL:		http://codeworker.free.fr/
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	gcc-c++
 
 %description
-CodeWorker is a versatile Open Source  (GNU Lesser General Public License)
-parsing tool and a source code generator devoted to generative programming.
-Generative programming is a software engineering approach interested in
-automating the production of reusable, tailor-made, adaptable and reliable
-IT systems.
-In layman's terms, CodeWorker lets you generate code by parsing existing
-languages, or by creating and parsing your own language. Once a language
-file has been parsed, CodeWorker provides several techniques for
-generating code.
+CodeWorker is a versatile parsing tool and a source code generator
+devoted to generative programming. Generative programming is a
+software engineering approach interested in automating the production
+of reusable, tailor-made, adaptable and reliable IT systems.
+In layman's terms, CodeWorker lets you generate code by parsing
+existing languages, or by creating and parsing your own language. Once
+a language file has been parsed, CodeWorker provides several
+techniques for generating code.
 
 %package devel
 Group: System/Libraries
-Summary: Codeworker's static library
+Summary: Codeworker static library
 
 %description devel
-CodeWorker is a versatile Open Source  (GNU Lesser General Public License)
-parsing tool and a source code generator devoted to generative programming.
-Generative programming is a software engineering approach interested in
-automating the production of reusable, tailor-made, adaptable and reliable
-IT systems.
-In layman's terms, CodeWorker lets you generate code by parsing existing
-languages, or by creating and parsing your own language. Once a language
-file has been parsed, CodeWorker provides several techniques for
-generating code.
+CodeWorker is a versatile parsing tool and a source code generator
+devoted to generative programming. Generative programming is a
+software engineering approach interested in automating the production
+of reusable, tailor-made, adaptable and reliable IT systems.
+In layman's terms, CodeWorker lets you generate code by parsing
+existing languages, or by creating and parsing your own language. Once
+a language file has been parsed, CodeWorker provides several
+techniques for generating code.
 
-This package include the codeworker static library
+This package include the static library.
 
 %prep
-%setup -q
+%setup -q -n %{oname}4_4
 
 %build
 %{_make_bin} all
 
 %install
-%{__rm} -rf $RPM_BUILD_ROOT
-%{__install} -m 755 -D codeworker $RPM_BUILD_ROOT%{_bindir}/codeworker
-%{__install} -m 644 -D libcodeworker.a $RPM_BUILD_ROOT%{_libdir}/libcodeworker.a
+%{__rm} -rf %{buildroot}
+%{__install} -m 755 -D codeworker %{buildroot}%{_bindir}/codeworker
+%{__install} -m 644 -D libcodeworker.a %{buildroot}%{_libdir}/libcodeworker.a
 for i in ./*.h; do
-	%{__install} -m 644 -D $i $RPM_BUILD_ROOT%{_includedir}/%{name}/$i
+	%{__install} -m 644 -D $i %{buildroot}%{_includedir}/%{name}/$i
 done
 
 %clean
-%{__rm} -rf $RPM_BUILD_ROOT
+%{__rm} -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
