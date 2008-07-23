@@ -3,7 +3,7 @@
 Summary:	A universal parsing tool and a source code generator
 Name:		codeworker
 Version:	4.4
-Release:	%mkrel 1
+Release:	%mkrel 3
 Source0:	http://codeworker.free.fr/downloads/%{oname}_SRC4_4.zip
 License:	LGPLv2+
 Group:		Development/Other
