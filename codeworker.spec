@@ -7,6 +7,7 @@ Version:	4.5.1
 Release:	%mkrel 1
 Source0:	http://codeworker.free.fr/downloads/%{oname}_SRC%{tarballver}.zip
 Patch0:		codeworker-4.5.1-enable-readline.patch
+Patch1:		codeworker-4.5.1-gcc4.3.patch
 License:	LGPLv2+
 Group:		Development/Other
 URL:		http://codeworker.free.fr/
@@ -44,9 +45,10 @@ This package include the static library.
 %prep
 %setup -q -n %{oname}%{tarballver}
 %patch0 -p0
+%patch1 -p0
 
 %build
-%make CFLAGS="%{optflags}" LDFLAGS="%{?ldflags}"
+%make CFLAGS="%{optflags}" LDFLAGS="%{?ldflags} -L%_libdir"
 
 %install
 %{__rm} -rf %{buildroot}
