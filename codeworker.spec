@@ -1,15 +1,19 @@
 %define oname CodeWorker
+%define tarballver %(echo %version |sed -e 's#\\.#_#g')
 
 Summary:	A universal parsing tool and a source code generator
 Name:		codeworker
-Version:	4.4
-Release:	%mkrel 3
-Source0:	http://codeworker.free.fr/downloads/%{oname}_SRC4_4.zip
+Version:	4.5.1
+Release:	%mkrel 1
+Source0:	http://codeworker.free.fr/downloads/%{oname}_SRC%{tarballver}.zip
+Patch0:		codeworker-4.5.1-enable-readline.patch
 License:	LGPLv2+
 Group:		Development/Other
 URL:		http://codeworker.free.fr/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gcc-c++
+BuildRequires:	libncursesw-devel
+BuildRequires:	readline-devel
 
 %description
 CodeWorker is a versatile parsing tool and a source code generator
@@ -38,10 +42,11 @@ techniques for generating code.
 This package include the static library.
 
 %prep
-%setup -q -n %{oname}4_4
+%setup -q -n %{oname}%{tarballver}
+%patch0 -p0
 
 %build
-%{_make_bin} all
+%make CFLAGS="%{optflags}" LDFLAGS="%{?ldflags}"
 
 %install
 %{__rm} -rf %{buildroot}
