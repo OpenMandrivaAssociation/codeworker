@@ -3,8 +3,8 @@
 
 Summary:	A universal parsing tool and a source code generator
 Name:		codeworker
-Version:	4.5.1
-Release:	%mkrel 2
+Version:	4.5.4
+Release:	%mkrel 1
 Source0:	http://codeworker.free.fr/downloads/%{oname}_SRC%{tarballver}.zip
 Patch0:		codeworker-4.5.1-enable-readline.patch
 Patch1:		codeworker-4.5.1-gcc4.3.patch
