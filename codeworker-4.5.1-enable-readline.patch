@@ -1,0 +1,25 @@
+--- Makefile.old	2008-07-29 15:24:32.000000000 +0800
++++ Makefile	2008-07-29 15:25:47.000000000 +0800
+@@ -36,17 +36,17 @@
+ ## Generally valid for 'gcc'
+ ##-----------------------------------------------------------------------------
+ 
+-INCDIRS	= -I.
+-CXXFLAGS	= -O2 -g $(INCDIRS)
+-LFLAGS	= -g -lm -ldl
++INCDIRS	+= -I. -I/usr/include/readline -I/usr/include/ncursesw
++CXXFLAGS	= $(CFLAGS) $(INCDIRS)
++LFLAGS	= $(LDFLAGS) -g -lm -ldl
+ CC	= g++
+ 
+ ##-----------------------------------------------------------------------------
+ ## If you want to take advantage of GNU Readline, uncomment the following
+ ## 2 lines and add the include path to this library
+ ##-----------------------------------------------------------------------------
+-#LFLAGS	+= -lreadline -lcurses
+-#CC	+= -DCODEWORKER_GNU_READLINE
++LFLAGS	+= -lreadline -lncursesw
++CC	+= -DCODEWORKER_GNU_READLINE
+ 
+ ##-----------------------------------------------------------------------------
+ ## Under HP, using g++:

@@ -1,0 +1,335 @@
+--- CGRuntime.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ CGRuntime.cpp	2008-07-29 09:51:59.000000000 +0200
+@@ -41,6 +41,7 @@
+ #include <time.h>
+ 
+ #include <errno.h>
++#include <cstdlib>
+ 
+ #ifdef CODEWORKER_GNU_READLINE
+ #	include <stdio.h> // fix for Red Hat 9 - thanks to Justin Cinkelj
+--- CppParsingTree.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ CppParsingTree.cpp	2008-07-29 09:55:03.000000000 +0200
+@@ -29,7 +29,7 @@
+ 
+ #include "ScpStream.h"
+ #include "UtlException.h"
+-
++#include <cstdlib>
+ #include "ExprScriptVariable.h"
+ #include "DtaScriptVariable.h"
+ #include "DtaProject.h"
+--- DtaScriptVariable.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ DtaScriptVariable.cpp	2008-07-29 09:56:14.000000000 +0200
+@@ -29,7 +29,7 @@
+ #endif
+ 
+ #include <string.h>
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ 
+ #include "UtlException.h"
+--- DtaScriptVariable.h~	2008-07-28 00:45:37.000000000 +0200
++++ DtaScriptVariable.h	2008-07-29 09:49:50.000000000 +0200
+@@ -28,6 +28,7 @@
+ #include <map>
+ #include <set>
+ #include <memory>
++#include <cstring>
+ 
+ namespace CodeWorker {
+ 	class DtaArrayIterator;
+--- DynPackage.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ DynPackage.cpp	2008-07-29 09:56:46.000000000 +0200
+@@ -29,7 +29,7 @@
+ #include "ScpStream.h"
+ #include "UtlException.h"
+ #include "UtlTrace.h"
+-
++#include <cstdlib>
+ #include "DtaScriptVariable.h"
+ #include "ExprScriptVariable.h"
+ #include "CppCompilerEnvironment.h"
+--- ExprScriptExpression.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ ExprScriptExpression.cpp	2008-07-29 09:57:17.000000000 +0200
+@@ -24,7 +24,7 @@
+ #endif
+ 
+ #include <math.h>
+-
++#include <cstdlib>
+ #include "UtlException.h"
+ #include "DtaScriptVariable.h"
+ #include "ScpStream.h"
+--- ExprScriptFunction.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ ExprScriptFunction.cpp	2008-07-29 09:57:47.000000000 +0200
+@@ -24,7 +24,7 @@
+ #endif
+ 
+ #include <math.h>
+-
++#include <cstdlib>
+ #include "UtlException.h"
+ #include "ScpStream.h"
+ 
+--- GrfAttachInputToSocket.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ GrfAttachInputToSocket.cpp	2008-07-29 09:58:32.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfAttachOutputToSocket.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ GrfAttachOutputToSocket.cpp	2008-07-29 09:58:56.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfCloseSocket.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ GrfCloseSocket.cpp	2008-07-29 09:59:17.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfDetachInputFromSocket.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ GrfDetachInputFromSocket.cpp	2008-07-29 10:03:52.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfDetachOutputFromSocket.cpp~	2008-07-28 00:45:37.000000000 +0200
++++ GrfDetachOutputFromSocket.cpp	2008-07-29 10:04:25.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfIncrementIndentLevel.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfIncrementIndentLevel.cpp	2008-07-29 10:05:02.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfInsertElementAt.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfInsertElementAt.cpp	2008-07-29 10:06:23.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfInsertText.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfInsertText.cpp	2008-07-29 10:06:58.000000000 +0200
+@@ -28,7 +28,7 @@
+ #include "CGRuntime.h"
+ #include "ExprScriptExpression.h"
+ #include <string>
+-
++#include <cstdlib>
+ //##protect##"INCLUDE FILES"
+ #include "DtaScriptVariable.h"
+ //##protect##"INCLUDE FILES"
+--- GrfInsertTextOnce.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfInsertTextOnce.cpp	2008-07-29 10:07:31.000000000 +0200
+@@ -28,6 +28,7 @@
+ #include "CGRuntime.h"
+ #include "ExprScriptExpression.h"
+ #include <string>
++#include <cstdlib>
+ 
+ //##protect##"INCLUDE FILES"
+ #include "DtaScriptVariable.h"
+--- GrfOverwritePortion.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfOverwritePortion.cpp	2008-07-29 10:08:28.000000000 +0200
+@@ -28,7 +28,7 @@
+ #include "CGRuntime.h"
+ #include "ExprScriptExpression.h"
+ #include <string>
+-
++#include <cstdlib>
+ //##protect##"INCLUDE FILES"
+ #include "DtaScriptVariable.h"
+ #include "GrfInsertText.h"
+--- GrfRandomSeed.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfRandomSeed.cpp	2008-07-29 10:09:16.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfResizeOutputStream.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfResizeOutputStream.cpp	2008-07-29 10:10:14.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfSetFloatingLocation.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfSetFloatingLocation.cpp	2008-07-29 10:10:44.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfSetInputLocation.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfSetInputLocation.cpp	2008-07-29 10:11:05.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfSetOutputLocation.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfSetOutputLocation.cpp	2008-07-29 10:11:31.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstdlib>
+ #include "ScpStream.h"
+ #include "CppCompilerEnvironment.h"
+ #include "CGRuntime.h"
+--- GrfSleep.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfSleep.cpp	2008-07-29 10:12:01.000000000 +0200
+@@ -28,6 +28,7 @@
+ #include "CGRuntime.h"
+ #include "ExprScriptExpression.h"
+ #include "GrfSleep.h"
++#include <cstdlib>
+ 
+ namespace CodeWorker {
+ 	GrfSleep::~GrfSleep() {
+--- GrfTraceObject.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ GrfTraceObject.cpp	2008-07-29 10:12:32.000000000 +0200
+@@ -30,6 +30,7 @@
+ #include "ExprScriptVariable.h"
+ #include "ExprScriptExpression.h"
+ #include "GrfTraceObject.h"
++#include <cstdlib>
+ 
+ namespace CodeWorker {
+ 	GrfTraceObject::~GrfTraceObject() {
+--- NetSocket.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ NetSocket.cpp	2008-07-29 10:15:08.000000000 +0200
+@@ -35,7 +35,7 @@
+ #	include <netdb.h>
+ #endif
+ 
+-
++#include <cstring>
+ #include "UtlException.h"
+ #include "CGRuntime.h"
+ #include "ScpStream.h"
+--- ScpStream.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ ScpStream.cpp	2008-07-29 10:16:32.000000000 +0200
+@@ -28,6 +28,8 @@
+ #	include <sys/stat.h>
+ 	// functions 'ntohl()' and 'htonl()'
+ #	include <netinet/in.h>
++	#include <cstring>
++	#include <cstdlib>
+ #endif
+ 
+ #include "UtlException.h"
+--- UtlDate.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ UtlDate.cpp	2008-07-29 10:17:01.000000000 +0200
+@@ -26,6 +26,8 @@
+ #include <stdio.h>
+ #include <math.h>
+ #include <time.h>
++#include <cstring>
++#include <cstdlib>
+ 
+ #ifdef WIN32
+ #	include <windows.h>
+--- UtlDirectory.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ UtlDirectory.cpp	2008-07-29 10:19:45.000000000 +0200
+@@ -30,6 +30,9 @@
+ #	include <sys/stat.h>
+ #	include <unistd.h>
+ #	include <glob.h>
++#	include <cstdlib>
++#	include <cstring>
++#	include <climits>
+ #endif
+ 
+ #include "UtlException.h"
+--- UtlTrace.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ UtlTrace.cpp	2008-07-29 10:20:09.000000000 +0200
+@@ -24,6 +24,7 @@
+ #endif
+ 
+ #include <stdarg.h>
++#include <cstring>
+ #include "ScpStream.h"
+ #include "UtlTrace.h"
+ 
+--- UtlXMLStream.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ UtlXMLStream.cpp	2008-07-29 10:20:34.000000000 +0200
+@@ -22,7 +22,7 @@
+ #ifdef WIN32
+ #pragma warning (disable : 4786)
+ #endif
+-
++#include <cstring>
+ #include "UtlString.h"
+ #include "UtlDate.h"
+ #include "UtlException.h"
+--- Workspace.cpp~	2008-07-28 00:45:38.000000000 +0200
++++ Workspace.cpp	2008-07-29 10:20:58.000000000 +0200
+@@ -26,6 +26,7 @@
+ #include <iostream>
+ #include <fstream>
+ #include <memory>
++#include <cstdlib>
+ 
+ #include "UtlException.h"
+ 
