@@ -4,16 +4,15 @@
 Summary:	A universal parsing tool and a source code generator
 Name:		codeworker
 Version:	4.5.4
-Release:	%mkrel 1
+Release:	2
 Source0:	http://codeworker.free.fr/downloads/%{oname}_SRC%{tarballver}.zip
 Patch0:		codeworker-4.5.1-enable-readline.patch
 Patch1:		codeworker-4.5.1-gcc4.3.patch
 License:	LGPLv2+
 Group:		Development/Other
 URL:		http://codeworker.free.fr/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	gcc-c++
-BuildRequires:	libncursesw-devel
+BuildRequires:	pkgconfig(ncursesw)
 BuildRequires:	readline-devel
 
 %description
@@ -27,8 +26,8 @@ a language file has been parsed, CodeWorker provides several
 techniques for generating code.
 
 %package devel
-Group: System/Libraries
-Summary: Codeworker static library
+Group:		System/Libraries
+Summary:	Codeworker static library
 
 %description devel
 CodeWorker is a versatile parsing tool and a source code generator
@@ -51,23 +50,17 @@ This package include the static library.
 %make CFLAGS="%{optflags}" LDFLAGS="%{?ldflags} -L%_libdir"
 
 %install
-%{__rm} -rf %{buildroot}
 %{__install} -m 755 -D codeworker %{buildroot}%{_bindir}/codeworker
 %{__install} -m 644 -D libcodeworker.a %{buildroot}%{_libdir}/libcodeworker.a
 for i in ./*.h; do
 	%{__install} -m 644 -D $i %{buildroot}%{_includedir}/%{name}/$i
 done
 
-%clean
-%{__rm} -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc Documentation/ Scripts/ WebSite/
 %{_bindir}/codeworker
 
 %files devel
-%defattr(-,root,root)
 %{_libdir}/libcodeworker.a
 %{_includedir}/*
 
