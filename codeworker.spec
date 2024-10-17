@@ -10,7 +10,7 @@ Patch0:		codeworker-4.5.1-enable-readline.patch
 Patch1:		codeworker-4.5.1-gcc4.3.patch
 License:	LGPLv2+
 Group:		Development/Other
-URL:		http://codeworker.free.fr/
+URL:		https://codeworker.free.fr/
 BuildRequires:	gcc-c++
 BuildRequires:	pkgconfig(ncursesw)
 BuildRequires:	readline-devel
